@@ -1,0 +1,23 @@
+#!/bin/bash
+
+cd VerivalUiautomator/
+
+echo -e "########################\n\tBUILD\n########################"
+ant build
+if [[ "$?" -ne "0" ]]
+then
+	echo -e "\nErro no BUILD. Saindo..."
+	exit -1
+fi
+
+echo -e "\n########################\n\tDEPLOY\n########################"
+adb push bin/VerivalUiautomator.jar /data/local/tmp/
+if [[ "$?" -ne "0" ]]
+then
+	echo -e "\nErro no DEPLOY. Saindo..."
+	exit -1
+fi
+
+echo -e "\n########################\n\tTESTS\n########################"
+adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.fga.software.verival.TestLigaDesligaFuncionalidades | grep -v INSTRUMENTATION_STATUS
+adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.fga.software.verival.TestEnviaVerificaEmail | grep -v INSTRUMENTATION_STATUS
