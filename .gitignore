@@ -12,8 +12,10 @@
 bin/
 gen/
 
-# Local configuration file (sdk path, etc)
+# Local configuration file (sdk path, api level)
 local.properties
+AndroidManifest.xml
+project.properties
 
 # Eclipse project files
 .classpath
