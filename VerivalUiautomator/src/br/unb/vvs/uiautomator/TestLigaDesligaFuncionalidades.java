@@ -1,10 +1,11 @@
-package br.unb.fga.software.verival;
+package br.unb.vvs.uiautomator;
 
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiScrollable;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import static br.unb.vvs.uiautomator.StringGetter.*;
 
 public class TestLigaDesligaFuncionalidades extends UiAutomatorTestCase {
 	
@@ -14,14 +15,15 @@ public class TestLigaDesligaFuncionalidades extends UiAutomatorTestCase {
 		getUiDevice().pressHome();
 	}
 	
-	public void testLigaDesligaWifi() throws UiObjectNotFoundException {   
+	public void testLigaDesligaWifi() throws UiObjectNotFoundException {
 		UiObject allAppsButton = new UiObject(new UiSelector()
-		.description("Apps"));
+		.description(getString("allApps")));
+		
 		System.out.println("Entrando nos apps...");
 		allAppsButton.clickAndWaitForNewWindow();
 
 		UiObject appsTab = new UiObject(new UiSelector()
-		.text("Apps"));
+		.text(getString("appsTab")));
 
 		appsTab.click();
 		
@@ -33,39 +35,44 @@ public class TestLigaDesligaFuncionalidades extends UiAutomatorTestCase {
 		System.out.println("Entrando nos settings...");
 		UiObject settingsApp = appViews.getChildByText(new UiSelector()
 		.className(android.widget.TextView.class.getName()), 
-		"Settings");
+		getString("settingsApp"));
 		settingsApp.clickAndWaitForNewWindow();
 
 		UiScrollable settingsList = new UiScrollable(new UiSelector().scrollable(true));
 		
 		System.out.println("Encontrando o switch do Wi-Fi...");
-		UiSelector wifiSelector = new UiSelector().className(android.widget.LinearLayout.class.getName());
-		UiObject wifiLayout = settingsList.getChildByText(wifiSelector,"Wi‑Fi", true);
+		UiSelector wifiSelector = new UiSelector().className(android.widget.Switch.class.getName()).instance(0);
+		UiObject wifiSwitch = settingsList.getChild(wifiSelector);
 
-		UiObject wifiSwitch = wifiLayout.getChild(new UiSelector().className(android.widget.Switch.class.getName()));
-		
 		System.out.println("Ligando/Desligando Wi-Fi...");
-		if(wifiSwitch.getText().equals("ON")) {
+		if(wifiSwitch.isChecked()) {
 			wifiSwitch.click();
-			assertEquals("OFF", wifiSwitch.getText());
+			assertEquals(getString("switchOff"), wifiSwitch.getText());
+			
+			sleep(100);
+			
 			wifiSwitch.click();
-			assertEquals("ON", wifiSwitch.getText());
+			assertEquals(getString("switchOn"), wifiSwitch.getText());
 		} else {
 			wifiSwitch.click();
-			assertEquals("ON", wifiSwitch.getText());
+			assertEquals(getString("switchOn"), wifiSwitch.getText());
+			
+			sleep(100);
+			
 			wifiSwitch.click();
-			assertEquals("OFF",wifiSwitch.getText());
+			assertEquals(getString("switchOff"),wifiSwitch.getText());
 		}
 	}
 	
 	public void testLigaDesligaBluetooth() throws UiObjectNotFoundException {   
 		UiObject allAppsButton = new UiObject(new UiSelector()
-		.description("Apps"));
+		.description(getString("allApps")));
+		
 		System.out.println("Entrando nos apps...");
 		allAppsButton.clickAndWaitForNewWindow();
 
 		UiObject appsTab = new UiObject(new UiSelector()
-		.text("Apps"));
+		.text(getString("appsTab")));
 
 		appsTab.click();
 		
@@ -77,28 +84,28 @@ public class TestLigaDesligaFuncionalidades extends UiAutomatorTestCase {
 		System.out.println("Entrando nos settings...");
 		UiObject settingsApp = appViews.getChildByText(new UiSelector()
 		.className(android.widget.TextView.class.getName()), 
-		"Settings");
+		getString("settingsApp"));
 		settingsApp.clickAndWaitForNewWindow();
 
 		UiScrollable settingsList = new UiScrollable(new UiSelector().scrollable(true));
 		
 		System.out.println("Encontrando o switch do Bluetooth...");
-		UiSelector bluetoothSelector = new UiSelector().className(android.widget.LinearLayout.class.getName());
-		UiObject bluetoothLayout = settingsList.getChildByText(bluetoothSelector,"Bluetooth", true);
-
-		UiObject bluetoothSwitch = bluetoothLayout.getChild(new UiSelector().className(android.widget.Switch.class.getName()));
+		UiSelector bluetoothSelector = new UiSelector().className(android.widget.Switch.class.getName()).instance(1);
+		UiObject bluetoothSwitch = settingsList.getChild(bluetoothSelector);
 		
 		System.out.println("Ligando/Desligando Bluetooth...");
-		if(bluetoothSwitch.getText().equals("ON")) {
+		if(bluetoothSwitch.isChecked()) {
 			bluetoothSwitch.click();
-			assertEquals("OFF", bluetoothSwitch.getText());
+			assertEquals(getString("switchOff"), bluetoothSwitch.getText());
+			sleep(100);
 			bluetoothSwitch.click();
-			assertEquals("ON", bluetoothSwitch.getText());
+			assertEquals(getString("switchOn"), bluetoothSwitch.getText());
 		} else {
 			bluetoothSwitch.click();
-			assertEquals("ON", bluetoothSwitch.getText());
+			assertEquals(getString("switchOn"), bluetoothSwitch.getText());
+			sleep(100);
 			bluetoothSwitch.click();
-			assertEquals("OFF",bluetoothSwitch.getText());
+			assertEquals(getString("switchOff"),bluetoothSwitch.getText());
 		}
 	}
 }

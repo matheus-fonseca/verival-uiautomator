@@ -11,6 +11,8 @@ then
 fi
 
 echo -e "\n########################\n\tDEPLOY\n########################"
+adb push src/resources/strings_pt-BR.properties /data/local/tmp/
+adb push src/resources/strings_en-US.properties /data/local/tmp/
 adb push bin/VerivalUiautomator.jar /data/local/tmp/
 if [[ "$?" -ne "0" ]]
 then
@@ -19,5 +21,5 @@ then
 fi
 
 echo -e "\n########################\n\tTESTS\n########################"
-adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.fga.software.verival.TestLigaDesligaFuncionalidades | grep -v INSTRUMENTATION_STATUS
-adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.fga.software.verival.TestEnviaVerificaEmail | grep -v INSTRUMENTATION_STATUS
+adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.vvs.uiautomator.TestLigaDesligaFuncionalidades | grep -v INSTRUMENTATION_STATUS
+adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.vvs.uiautomator.TestEnviaVerificaEmail | grep -v INSTRUMENTATION_STATUS
