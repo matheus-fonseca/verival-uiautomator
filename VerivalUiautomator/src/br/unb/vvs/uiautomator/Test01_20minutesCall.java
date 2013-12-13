@@ -12,7 +12,7 @@ import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 public class Test01_20minutesCall extends UiAutomatorTestCase {
 
 	public void setUp() {
-		String output = "\nTeste " + this.getName().substring(4) + "() ";
+		String output = "\nTest " + this.getName().substring(4) + "() ";
 		System.out.println(output);
 		getUiDevice().pressHome();
 	}

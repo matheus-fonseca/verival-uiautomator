@@ -21,5 +21,6 @@ then
 fi
 
 echo -e "\n########################\n\tTESTS\n########################"
-adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.vvs.uiautomator.TestLigaDesligaFuncionalidades | grep -v INSTRUMENTATION_STATUS
-adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.vvs.uiautomator.TestEnviaVerificaEmail | grep -v INSTRUMENTATION_STATUS
+#adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.vvs.uiautomator.Test01_20minutesCall | grep -v INSTRUMENTATION_STATUS
+adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.vvs.uiautomator.Test05_TurnOnOffAdapters | grep -v INSTRUMENTATION_STATUS
+adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.vvs.uiautomator.Test07_SendVerifyEmail | grep -v INSTRUMENTATION_STATUS 

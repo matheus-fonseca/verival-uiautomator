@@ -9,10 +9,10 @@ import com.android.uiautomator.core.UiScrollable;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 
-public class TestEnviaVerificaEmail extends UiAutomatorTestCase {
+public class Test07_SendVerifyEmail extends UiAutomatorTestCase {
 	
 	public void setUp() {
-		String output = "\nTeste " + this.getName() + "() ";
+		String output = "\nTest " + this.getName().substring(4) + "() ";
 		System.out.println(output);
 //		try {
 //			getUiDevice().pressHome();
@@ -24,7 +24,7 @@ public class TestEnviaVerificaEmail extends UiAutomatorTestCase {
 		getUiDevice().pressHome();
 	}
 
-	public void testEnviaVerificaEmail() throws UiObjectNotFoundException {   
+	public void testSendVerifyEmail() throws UiObjectNotFoundException {   
 		UiObject allAppsButton = new UiObject(new UiSelector()
 		.description(getString("allApps")));
 		System.out.println("Entrando nos apps...");

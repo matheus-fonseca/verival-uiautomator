@@ -7,15 +7,15 @@ import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import static br.unb.vvs.uiautomator.StringGetter.*;
 
-public class TestLigaDesligaFuncionalidades extends UiAutomatorTestCase {
+public class Test05_TurnOnOffAdapters extends UiAutomatorTestCase {
 	
 	public void setUp() {
-		String output = "\nTeste " + this.getName() + "() ";
+		String output = "\nTest " + this.getName().substring(4) + "() ";
 		System.out.println(output);
 		getUiDevice().pressHome();
 	}
 	
-	public void testLigaDesligaWifi() throws UiObjectNotFoundException {
+	public void testTurnOnOffWifi() throws UiObjectNotFoundException {
 		UiObject allAppsButton = new UiObject(new UiSelector()
 		.description(getString("allApps")));
 		
@@ -64,7 +64,7 @@ public class TestLigaDesligaFuncionalidades extends UiAutomatorTestCase {
 		}
 	}
 	
-	public void testLigaDesligaBluetooth() throws UiObjectNotFoundException {   
+	public void testTurnOnOffBluetooth() throws UiObjectNotFoundException {   
 		UiObject allAppsButton = new UiObject(new UiSelector()
 		.description(getString("allApps")));
 		
