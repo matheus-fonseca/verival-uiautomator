@@ -10,7 +10,7 @@ import static br.unb.vvs.uiautomator.StringGetter.*;
 public class TestLigaDesligaFuncionalidades extends UiAutomatorTestCase {
 	
 	public void setUp() {
-		String output = "\nTeste " + this.getName().substring(4) + "() ";
+		String output = "\nTeste " + this.getName() + "() ";
 		System.out.println(output);
 		getUiDevice().pressHome();
 	}

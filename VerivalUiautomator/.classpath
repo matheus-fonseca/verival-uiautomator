@@ -5,7 +5,6 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
-	<classpathentry kind="lib" path="/opt/android-sdk-linux/platforms/android-18/uiautomator.jar"/>
+	<classpathentry kind="lib" path="lib/uiautomator.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
