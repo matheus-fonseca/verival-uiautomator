@@ -14,13 +14,7 @@ public class Test07_SendVerifyEmail extends UiAutomatorTestCase {
 	public void setUp() {
 		String output = "\nTest " + this.getName().substring(4) + "() ";
 		System.out.println(output);
-//		try {
-//			getUiDevice().pressHome();
-//			configuraContaEmail();
-//		} catch (UiObjectNotFoundException e) {
-//			System.out.println("Nao foi possivel configurar a conta de Email para o teste. Saindo...");
-//			System.exit(-1);
-//		}
+
 		getUiDevice().pressHome();
 	}
 

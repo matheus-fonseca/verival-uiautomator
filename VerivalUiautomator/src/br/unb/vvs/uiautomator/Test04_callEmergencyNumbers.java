@@ -8,11 +8,14 @@ import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 
 public class Test04_callEmergencyNumbers extends UiAutomatorTestCase {
-
-	public void callEmergencyNumbersTest() throws UiObjectNotFoundException {
-
+	public void setUp() {
+		String output = "\nTest " + this.getName().substring(4) + "() ";
+		System.out.println(output);
 		// Simulate a short press on the HOME button.
 		// getUiDevice().pressHome();
+	}
+
+	public void callEmergencyNumbersTest() throws UiObjectNotFoundException {
 
 		UiObject emergencyCall = new UiObject(
 				new UiSelector().text("CHAMADA DE EMERGÊNCIA"));

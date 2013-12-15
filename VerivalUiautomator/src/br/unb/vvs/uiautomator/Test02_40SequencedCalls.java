@@ -8,12 +8,15 @@ import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 
 public class Test02_40SequencedCalls extends UiAutomatorTestCase {
+	public void setUp() {
+		String output = "\nTest " + this.getName().substring(4) + "() ";
+		System.out.println(output);
+		// Simulate a short press on the HOME button.
+		getUiDevice().pressHome();
+	}
 
 	public void test40SequencedCalls() throws UiObjectNotFoundException,
 			InterruptedException {
-
-		// Simulate a short press on the HOME button.
-		getUiDevice().pressHome();
 		
 		// Create the buttonObject called Telefone
 		UiObject phone = new UiObject(new UiSelector().packageNameMatches("com.cyanogenmod.trebuchet").classNameMatches("android.widget.TextView").index(0));

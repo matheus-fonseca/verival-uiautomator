@@ -11,10 +11,16 @@ import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 
 
 public class Test08_Add1000NewContacts extends UiAutomatorTestCase {
-	
+	public void setUp() {
+		String output = "\nTest " + this.getName().substring(4) + "() ";
+		System.out.println(output);
+		// Simulate a short press on the HOME button.
+		getUiDevice().pressHome();
+	}
+
+
 	public void testCriarMilNumerosRandomicos() throws UiObjectNotFoundException{
 		
-		getUiDevice().pressHome();
 		//Selecionando lista de contatos
 		UiSelector peopleSelector = new UiSelector().text(getString("people")); 
 		UiObject people = new UiObject(peopleSelector);

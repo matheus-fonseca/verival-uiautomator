@@ -21,6 +21,10 @@ then
 fi
 
 echo -e "\n########################\n\tTESTS\n########################"
-#adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.vvs.uiautomator.Test01_20minutesCall | grep -v INSTRUMENTATION_STATUS
+adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.vvs.uiautomator.Test01_20minutesCall | grep -v INSTRUMENTATION_STATUS
+adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.vvs.uiautomator.Test02_40SequencedCalls | grep -v INSTRUMENTATION_STATUS
+adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.vvs.uiautomator.Test04_callEmergencyNumbers | grep -v INSTRUMENTATION_STATUS
+adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.vvs.uiautomator.Test06_Send100TextMessage | grep -v INSTRUMENTATION_STATUS
 adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.vvs.uiautomator.Test05_TurnOnOffAdapters | grep -v INSTRUMENTATION_STATUS
 adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.vvs.uiautomator.Test07_SendVerifyEmail | grep -v INSTRUMENTATION_STATUS 
+adb shell uiautomator runtest VerivalUiautomator.jar -c br.unb.vvs.uiautomator.Test08_Add1000NewContacts | grep -v INSTRUMENTATION_STATUS 
